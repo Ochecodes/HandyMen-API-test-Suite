@@ -1,0 +1,3283 @@
+{
+  "info": {
+    "_postman_id": "e0f97247-a3d4-4224-8043-97e6c03ad1bc",
+    "name": "HandyMan App API - Test Collection",
+    "description": "Auto-generated from the OpenAPI spec for the HandyMan App backend (Staging). Organized by module/tag, matching the Test Cases workbook.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://staging.api.onyapay.com"
+    },
+    {
+      "key": "authToken",
+      "value": ""
+    },
+    {
+      "key": "userId",
+      "value": "1"
+    },
+    {
+      "key": "jobId",
+      "value": "1"
+    },
+    {
+      "key": "quoteId",
+      "value": "1"
+    },
+    {
+      "key": "handymanId",
+      "value": "1"
+    },
+    {
+      "key": "clientId",
+      "value": "1"
+    },
+    {
+      "key": "reviewId",
+      "value": "1"
+    },
+    {
+      "key": "category",
+      "value": "Plumbing"
+    },
+    {
+      "key": "latitude",
+      "value": "6.5244"
+    },
+    {
+      "key": "longitude",
+      "value": "3.3792"
+    }
+  ],
+  "item": [
+    {
+      "name": "User Management",
+      "item": [
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/update-profile{{baseUrl}}/users/update-profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "update-profile"
+              ],
+              "query": []
+            },
+            "description": "Update User Profile",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"sample text\",\n  \"lastName\": \"sample text\",\n  \"phoneNumber\": \"sample text\",\n  \"experience\": \"sample text\",\n  \"bio\": \"sample text\",\n  \"locationLatitude\": 1.0,\n  \"locationLongitude\": 1.0,\n  \"address\": \"sample text\",\n  \"serviceName\": \"sample text\",\n  \"skills\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Complete User Registration",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/complete-registration/{{userId}}{{baseUrl}}/users/complete-registration/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "complete-registration",
+                "{{userId}}"
+              ],
+              "query": []
+            },
+            "description": "Complete User Registration",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"sample text\",\n  \"lastName\": \"sample text\",\n  \"password\": \"sample text\",\n  \"confirmPassword\": \"sample text\",\n  \"address\": \"sample text\",\n  \"profilePicUrl\": \"sample text\",\n  \"location\": \"sample text\",\n  \"experience\": \"sample text\",\n  \"bio\": \"sample text\",\n  \"skills\": [],\n  \"idVerificationUrl\": \"sample text\",\n  \"serviceName\": \"sample text\",\n  \"locationLatitude\": 1.0,\n  \"locationLongitude\": 1.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pre Registration of Users",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/pre-register{{baseUrl}}/users/pre-register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "pre-register"
+              ],
+              "query": []
+            },
+            "description": "Pre Registration of Users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"userType\": \"CLIENT\",\n  \"phoneNumber\": \"sample text\",\n  \"tokenDestination\": \"EMAIL\",\n  \"skills\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/profile{{baseUrl}}/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "profile"
+              ],
+              "query": []
+            },
+            "description": "Get User Profile"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users/delete-account{{baseUrl}}/users/delete-account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users",
+                "delete-account"
+              ],
+              "query": []
+            },
+            "description": "Delete Account",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Storage",
+      "item": [
+        {
+          "name": "Upload File",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/storage/upload-file{{baseUrl}}/storage/upload-file",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "storage",
+                "upload-file"
+              ],
+              "query": []
+            },
+            "description": "Uploads a file. This endpoint requires a file to be uploaded in multipart/form-data format.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Handyman Reviews",
+      "item": [
+        {
+          "name": "Client submits a review for a handyman after job completion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/job/{{jobId}}{{baseUrl}}/reviews/job/{{jobId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "job",
+                "{{jobId}}"
+              ],
+              "query": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": \"BAD\",\n  \"reviewMessage\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get all reviews for a handyman",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/handyman/{{handymanId}}?from={{from}}}}&to={{to}}}}&searchItem={{searchItem}}}}&page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "handyman",
+                "{{handymanId}}"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "{{from}}",
+                  "disabled": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{to}}",
+                  "disabled": true
+                },
+                {
+                  "key": "searchItem",
+                  "value": "{{searchItem}}",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get all reviews received by a handyman across all jobs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/handyman/{{handymanId}}/received?from={{from}}}}&to={{to}}}}&searchItem={{searchItem}}}}&page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "handyman",
+                "{{handymanId}}",
+                "received"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "{{from}}",
+                  "disabled": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{to}}",
+                  "disabled": true
+                },
+                {
+                  "key": "searchItem",
+                  "value": "{{searchItem}}",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get all reviews submitted by a client across all jobs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/client/{{clientId}}/submitted?from={{from}}}}&to={{to}}}}&searchItem={{searchItem}}}}&page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "client",
+                "{{clientId}}",
+                "submitted"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "{{from}}",
+                  "disabled": true
+                },
+                {
+                  "key": "to",
+                  "value": "{{to}}",
+                  "disabled": true
+                },
+                {
+                  "key": "searchItem",
+                  "value": "{{searchItem}}",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client deletes their own review",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{reviewId}}{{baseUrl}}/reviews/{{reviewId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "reviews",
+                "{{reviewId}}"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "item": [
+        {
+          "name": "Handyman requests to start the job — awaits client confirmation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/start?handymanId={{handymanId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "start"
+              ],
+              "query": [
+                {
+                  "key": "handymanId",
+                  "value": "{{handymanId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client rates the handyman after job completion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/rate-handyman?clientId={{clientId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "rate-handyman"
+              ],
+              "query": [
+                {
+                  "key": "clientId",
+                  "value": "{{clientId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": \"BAD\",\n  \"reviewMessage\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Submit a quote for a job",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/quotes?handymanId={{handymanId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "quotes"
+              ],
+              "query": [
+                {
+                  "key": "handymanId",
+                  "value": "{{handymanId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 1.0,\n  \"estimatedHours\": 1.0,\n  \"proposedStartTime\": \"2026-07-10T10:00:00Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Accept a quote and hire Handyman — job moves to QUOTE_ACCEPTED",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/quotes/{{quoteId}}/hire-handyman?clientId={{clientId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "quotes",
+                "{{quoteId}}",
+                "hire-handyman"
+              ],
+              "query": [
+                {
+                  "key": "clientId",
+                  "value": "{{clientId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Handyman confirms the that he has arrived",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/notify-arrival{{baseUrl}}/jobs/{{jobId}}/notify-arrival",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "notify-arrival"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client confirms job start — moves to ONGOING",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/confirm-start{{baseUrl}}/jobs/{{jobId}}/confirm-start",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "confirm-start"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client confirms the handyman's arrival — unlocks job start",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/confirm-handyman-arrival{{baseUrl}}/jobs/{{jobId}}/confirm-handyman-arrival",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "confirm-handyman-arrival"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Client confirms job completion",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/confirm-completion{{baseUrl}}/jobs/{{jobId}}/confirm-completion",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "confirm-completion"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mark job as completed",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/complete?requesterId={{requesterId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "complete"
+              ],
+              "query": [
+                {
+                  "key": "requesterId",
+                  "value": "{{requesterId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cancel a job (allowed in PENDING_QUOTES, ACCEPTED or CONFIRMED)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/cancel?requesterId={{requesterId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "cancel"
+              ],
+              "query": [
+                {
+                  "key": "requesterId",
+                  "value": "{{requesterId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search for nearby handymen, create job, and notify them in one step",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/create{{baseUrl}}/jobs/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "create"
+              ],
+              "query": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"sample text\",\n  \"description\": \"sample text\",\n  \"category\": \"sample text\",\n  \"locationAddress\": \"sample text\",\n  \"imageUrls\": [],\n  \"scheduledAt\": \"2026-07-10T10:00:00Z\",\n  \"budgetMin\": 1.0,\n  \"budgetMax\": 1.0,\n  \"aiSuggestedPriceRange\": {\n    \"min\": 1.0,\n    \"max\": 1.0,\n    \"currency\": \"sample text\"\n  },\n  \"latitude\": 1.0,\n  \"longitude\": 1.0,\n  \"radiusKm\": 1.0,\n  \"minRating\": 1.0,\n  \"skills\": [],\n  \"scheduled\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Analyze job request with location-aware pricing and optional images",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/analyze{{baseUrl}}/jobs/analyze",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "analyze"
+              ],
+              "query": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": \"sample text\",\n  \"description\": \"sample text\",\n  \"imageUrls\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get job details with quotes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}{{baseUrl}}/jobs/{{jobId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Track handyman's live road distance and ETA — poll every 5-10 seconds",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/tracking{{baseUrl}}/jobs/{{jobId}}/tracking",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "tracking"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get job details for client after a specific handyman notifies arrival",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/handyman/{{handymanId}}/arrival-notification-details{{baseUrl}}/jobs/{{jobId}}/handyman/{{handymanId}}/arrival-notification-details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "handyman",
+                "{{handymanId}}",
+                "arrival-notification-details"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get job details for handyman after client confirms completion",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/handyman/completion-confirmation-details{{baseUrl}}/jobs/{{jobId}}/handyman/completion-confirmation-details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "handyman",
+                "completion-confirmation-details"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get job details for handyman after client confirms their arrival",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/handyman/arrival-confirmation-details{{baseUrl}}/jobs/{{jobId}}/handyman/arrival-confirmation-details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "handyman",
+                "arrival-confirmation-details"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get full job details for the accepted handyman",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/handyman/acceptance-details{{baseUrl}}/jobs/{{jobId}}/handyman/acceptance-details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "handyman",
+                "acceptance-details"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get job details for client after handyman starts the job",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/client/started-details{{baseUrl}}/jobs/{{jobId}}/client/started-details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "client",
+                "started-details"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get job details for client after handyman marks job completed",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/{{jobId}}/client/completion-details{{baseUrl}}/jobs/{{jobId}}/client/completion-details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "{{jobId}}",
+                "client",
+                "completion-details"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get quote history submitted by a handyman, optionally filtered by status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/handyman/{{handymanId}}/quotes?status={{status}}}}&page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "handyman",
+                "{{handymanId}}",
+                "quotes"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "{{status}}",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get jobs a handyman was invited to",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/handyman/{{handymanId}}/job-requests?page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "handyman",
+                "{{handymanId}}",
+                "job-requests"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get jobs a handyman was invited to, filtered by status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/handyman/{{handymanId}}/invited/status?status={{status}}}}&page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "handyman",
+                "{{handymanId}}",
+                "invited",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "{{status}}",
+                  "disabled": false
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get bookings for the handyman filtered by status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/handyman/{{handymanId}}/bookings?page={{page}}}}&size={{size}}}}&isCompleted={{isCompleted}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "handyman",
+                "{{handymanId}}",
+                "bookings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                },
+                {
+                  "key": "isCompleted",
+                  "value": "{{isCompleted}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get all jobs posted by a client - paginated",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/client/{{clientId}}?page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "client",
+                "{{clientId}}"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get a client's jobs filtered by status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/client/{{clientId}}/status?status={{status}}}}&page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "client",
+                "{{clientId}}",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "{{status}}",
+                  "disabled": false
+                },
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get recent services for a client",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs/client/{{clientId}}/recent?page={{page}}}}&size={{size}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs",
+                "client",
+                "{{clientId}}",
+                "recent"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "{{page}}",
+                  "disabled": true
+                },
+                {
+                  "key": "size",
+                  "value": "{{size}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Handyman Geo Location",
+      "item": [
+        {
+          "name": "Update Location",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/geo/update-handymen-location{{baseUrl}}/geo/update-handymen-location",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "geo",
+                "update-handymen-location"
+              ],
+              "query": []
+            },
+            "description": "Update Location",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"latitude\": 1.0,\n  \"longitude\": 1.0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "getLocation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/geo/client-location?latitude={{latitude}}}}&longitude={{longitude}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "geo",
+                "client-location"
+              ],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "{{latitude}}",
+                  "disabled": false
+                },
+                {
+                  "key": "longitude",
+                  "value": "{{longitude}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disputes",
+      "item": [
+        {
+          "name": "Get all disputes for a job",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/disputes/job/{{jobId}}{{baseUrl}}/disputes/job/{{jobId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "disputes",
+                "job",
+                "{{jobId}}"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Raise a dispute for a job",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/disputes/job/{{jobId}}?requesterId={{requesterId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "disputes",
+                "job",
+                "{{jobId}}"
+              ],
+              "query": [
+                {
+                  "key": "requesterId",
+                  "value": "{{requesterId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"sample text\",\n  \"description\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get all disputes raised by a user",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/disputes/my/{{userId}}{{baseUrl}}/disputes/my/{{userId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "disputes",
+                "my",
+                "{{userId}}"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "Mark all messages in a conversation as read",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/chat/{{jobId}}/read?recipientId={{recipientId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "{{jobId}}",
+                "read"
+              ],
+              "query": [
+                {
+                  "key": "recipientId",
+                  "value": "{{recipientId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Load full chat history for a job",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/chat/{{jobId}}/history?requesterId={{requesterId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "{{jobId}}",
+                "history"
+              ],
+              "query": [
+                {
+                  "key": "requesterId",
+                  "value": "{{requesterId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get total unread message count for a user",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/chat/unread?userId={{userId}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "chat",
+                "unread"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "{{userId}}",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Handyman Categories",
+      "item": [
+        {
+          "name": "Match a category from OpenAI job analysis result",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/categories/match{{baseUrl}}/categories/match",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "categories",
+                "match"
+              ],
+              "query": []
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"sample text\",\n  \"jobType\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get all handyman categories and their subcategories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/categories{{baseUrl}}/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "categories"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get subcategories for a specific category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/categories/{{category}}/subcategories{{baseUrl}}/categories/{{category}}/subcategories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "categories",
+                "{{category}}",
+                "subcategories"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Verify Token: Usecases: Email Verification (User Onboarding), Password Reset, Forgot password, Token Resend.",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/validate-OTP{{baseUrl}}/auth/validate-OTP",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "validate-OTP"
+              ],
+              "query": []
+            },
+            "description": "Verify Token: Usecases: Email Verification (User Onboarding), Password Reset, Forgot password, Token Resend.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"tokenCategory\": \"EMAIL_VERIFICATION\",\n  \"OTP\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/send-OTP{{baseUrl}}/auth/send-OTP",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "send-OTP"
+              ],
+              "query": []
+            },
+            "description": "Get OTP",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"tokenCategory\": \"EMAIL_VERIFICATION\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reset User Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/reset-password{{baseUrl}}/auth/reset-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "reset-password"
+              ],
+              "query": []
+            },
+            "description": "Reset User Password",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"oldPassword\": \"sample text\",\n  \"newPassword\": \"sample text\",\n  \"confirmPassword\": \"sample text\",\n  \"tokenCategory\": \"EMAIL_VERIFICATION\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/resend-token?userId={{userId}}}}&email={{email}}}}&phoneNumber={{phoneNumber}}}}&destination={{destination}}}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "resend-token"
+              ],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "{{userId}}",
+                  "disabled": false
+                },
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "disabled": true
+                },
+                {
+                  "key": "phoneNumber",
+                  "value": "{{phoneNumber}}",
+                  "disabled": true
+                },
+                {
+                  "key": "destination",
+                  "value": "{{destination}}",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Get OTP"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/login{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ],
+              "query": []
+            },
+            "description": "Login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"password\": \"sample text\",\n  \"fcmToken\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reset Forgotten Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/forgot-password{{baseUrl}}/auth/forgot-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "forgot-password"
+              ],
+              "query": []
+            },
+            "description": "Reset Forgotten Password",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"testuser@example.com\",\n  \"newPassword\": \"sample text\",\n  \"confirmPassword\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Set PIN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/create-pin{{baseUrl}}/auth/create-pin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "create-pin"
+              ],
+              "query": []
+            },
+            "description": "Set PIN",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPin\": \"sample text\",\n  \"confirmPin\": \"sample text\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health check returning structured uptime and client IP data",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/health/check{{baseUrl}}/health/check",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health",
+                "check"
+              ],
+              "query": []
+            },
+            "description": "Health check returning structured uptime and client IP data"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dashboard-controller",
+      "item": [
+        {
+          "name": "Get handyman dashboard summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dashboard{{baseUrl}}/dashboard",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboard"
+              ],
+              "query": []
+            },
+            "description": ""
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200 or documented code', function () {",
+                  "    pm.expect([200,201,400,401,403,404,409,422]).to.include(pm.response.code);",
+                  "});",
+                  "pm.test('Response time is acceptable', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "});",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test('Response is valid JSON', function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
