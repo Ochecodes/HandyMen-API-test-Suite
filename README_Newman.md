@@ -74,3 +74,4 @@ This command will:
 ## Optional helper scripts
 - `node scripts/update-collection-from-data.js` — updates raw JSON bodies in the collection using values from `data.json`
 - `node scripts/merge-results.js ...` — merges the Newman results with the collection and a workbook if you have the required file available
+
